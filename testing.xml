@@ -3,6 +3,7 @@
 <suite name="Suite1" verbose="1" >
 
 <parameter name="browser">chrome</parameter>
+<parameter name="appUrl">http://localhost:3000</parameter>
 
   <test name="Nopackage" >
     <classes>
