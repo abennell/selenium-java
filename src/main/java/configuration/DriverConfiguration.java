@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class DriverConfiguration {
 	String browser;
-	protected static WebDriver driver;
+	public static WebDriver driver;
 
 	public DriverConfiguration(String browser) {
 		this.browser = browser;

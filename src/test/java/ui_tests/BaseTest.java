@@ -1,6 +1,5 @@
 package ui_tests;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
@@ -10,18 +9,15 @@ import configuration.DriverConfiguration;
 
 public class BaseTest {
 
-	WebDriver driver;
-
 	@BeforeSuite
 	@Parameters({ "browser" })
 	public void beforeSuite(String browser) {
-		DriverConfiguration config = new DriverConfiguration(browser);
-		driver = config.getDriver();
+		new DriverConfiguration(browser);
 	}
 
 	@AfterSuite
 	public void afterSuite() {
-		driver.quit();
+		DriverConfiguration.driver.quit();
 	}
 
 	@AfterTest
