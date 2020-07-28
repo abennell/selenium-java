@@ -9,15 +9,19 @@ import configuration.DriverConfiguration;
 
 public class BaseTest {
 
+	DriverConfiguration config;
+
 	@BeforeSuite
-	@Parameters({ "browser" })
-	public void beforeSuite(String browser) {
-		new DriverConfiguration(browser);
+	@Parameters({ "browser", "appUrl" })
+	public void beforeSuite(String browser, String appUrl) {
+		DriverConfiguration config = new DriverConfiguration();
+		config.configureDriver(browser);
+		config.getDriver().navigate().to(appUrl);
 	}
 
 	@AfterSuite
 	public void afterSuite() {
-		DriverConfiguration.driver.quit();
+		config.getDriver().quit();
 	}
 
 	@AfterTest

@@ -1,5 +1,6 @@
 package ui_tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -18,8 +19,7 @@ public class LoginTests extends BaseTest {
 	@Parameters({ "username", "password" })
 	private void successfulLoginTest(String username, String password) {
 		DashboardPage dashboardPage = loginPage.loginUser(username, password);
-		dashboardPage.checkPageIsLoaded();
-
+		Assert.assertEquals(dashboardPage.getPageTitle(), "Dashboard");
 	}
 
 }

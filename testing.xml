@@ -7,6 +7,8 @@
 <parameter name="appUrl" value="http://localhost:3000"></parameter>
 
 <test name="UI Tests" >
+<parameter name="username" value="Katharina_Bernier"></parameter>
+<parameter name="password" value="s3cret"></parameter>
     <classes>
        <class name="ui_tests.LoginTests" />
     </classes>

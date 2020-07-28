@@ -5,17 +5,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DriverConfiguration {
-	String browser;
-	public static WebDriver driver;
 
-	public DriverConfiguration(String browser) {
-		this.browser = browser;
-		configureDriver();
+	private WebDriver driver;
+	private WebDriverWait wait;
+
+	public DriverConfiguration() {
+
 	}
 
-	private void configureDriver() {
+	public void configureDriver(String browser) {
 
 		switch (browser) {
 		case "chrome":
@@ -33,10 +34,17 @@ public class DriverConfiguration {
 			break;
 
 		}
+
+		wait = new WebDriverWait(driver, 10);
+
 	}
 
 	public WebDriver getDriver() {
-		return driver;
+		return this.driver;
+	}
+
+	public WebDriverWait getWait() {
+		return this.wait;
 	}
 
 }

@@ -4,17 +4,17 @@ import org.openqa.selenium.By;
 
 public class LoginPage extends BasePage {
 
-	By pageTile = By.id("");
-	By usernameField = By.id("");
-	By passwordField = By.id("");
-	By loginButton = By.id("");
+	By pageTitle = By.cssSelector("h1");
+	By usernameField = By.id("username");
+	By passwordField = By.id("password");
+	By loginButton = By.cssSelector("MuiButtonBase-root");
 
 	public LoginPage() {
 
 	}
 
-	public void checkPageIsLoaded() {
-
+	public String getPageTitle() {
+		return getPageTitleText(pageTitle);
 	}
 
 	public void enterUsername(String username) {

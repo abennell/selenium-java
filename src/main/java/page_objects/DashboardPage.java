@@ -1,10 +1,17 @@
 package page_objects;
 
+import org.openqa.selenium.By;
+
 public class DashboardPage extends BasePage {
 
-	public void checkPageIsLoaded() {
-		// TODO Auto-generated method stub
+	By pageTitle = By.id("");
 
+	public DashboardPage() {
+
+	}
+
+	public String getPageTitle() {
+		return getPageTitleText(pageTitle);
 	}
 
 }
