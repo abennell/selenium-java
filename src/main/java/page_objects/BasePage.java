@@ -13,15 +13,12 @@ public class BasePage {
 	protected WebDriverWait wait;
 
 	public BasePage() {
-		DriverConfiguration config = new DriverConfiguration();
-		driver = config.getDriver();
-		wait = config.getWait();
-
+		driver = DriverConfiguration.getInstance().getDriver();
+		wait = DriverConfiguration.getInstance().getWait();
 	}
 
 	public String getPageTitleText(By elementLocator) {
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(elementLocator)));
-		return driver.findElement(elementLocator).getText();
-
+		wait.until(ExpectedConditions.visibilityOfElementLocated(elementLocator));
+		return driver.findElement(elementLocator).getText().toString();
 	}
 }

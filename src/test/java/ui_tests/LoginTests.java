@@ -11,15 +11,12 @@ public class LoginTests extends BaseTest {
 
 	private LoginPage loginPage;
 
-	public LoginTests() {
-		loginPage = new LoginPage();
-	}
-
 	@Test
 	@Parameters({ "username", "password" })
 	private void successfulLoginTest(String username, String password) {
+		loginPage = new LoginPage();
 		DashboardPage dashboardPage = loginPage.loginUser(username, password);
-		Assert.assertEquals(dashboardPage.getPageTitle(), "Dashboard");
+		Assert.assertEquals(dashboardPage.getPageTitle(), "@Katharina_Bernier");
 	}
 
 }

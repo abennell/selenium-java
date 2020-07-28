@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class DashboardPage extends BasePage {
 
-	By pageTitle = By.id("");
+	By pageTitle = By.cssSelector("h6.MuiTypography-subtitle2");
 
 	public DashboardPage() {
 

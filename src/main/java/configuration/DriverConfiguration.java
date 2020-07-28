@@ -9,11 +9,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DriverConfiguration {
 
-	private WebDriver driver;
-	private WebDriverWait wait;
+	public static WebDriver driver;
+	public WebDriverWait wait;
 
-	public DriverConfiguration() {
+	private static DriverConfiguration driverConfiguration;
 
+	private DriverConfiguration() {
+
+	}
+
+	public static DriverConfiguration getInstance() {
+		if (driverConfiguration == null) {
+			driverConfiguration = new DriverConfiguration();
+		}
+		return driverConfiguration;
 	}
 
 	public void configureDriver(String browser) {
@@ -35,16 +44,16 @@ public class DriverConfiguration {
 
 		}
 
-		wait = new WebDriverWait(driver, 10);
+		wait = new WebDriverWait(driver, 30);
 
 	}
 
 	public WebDriver getDriver() {
-		return this.driver;
+		return driver;
 	}
 
 	public WebDriverWait getWait() {
-		return this.wait;
+		return wait;
 	}
 
 }
